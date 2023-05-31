@@ -45,9 +45,11 @@ end
 function grip_up()
 	modules.arms.grip_servo.rotate(-1)
 end
+
 function reset_arm()
 	modules.others.reset_arm()
 end
+
 function switch_slow_mode()
-	is_slow_mode=!is_slow_mode
+	is_slow_mode= not is_slow_mode
 end

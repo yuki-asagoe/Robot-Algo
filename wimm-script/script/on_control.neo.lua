@@ -10,24 +10,28 @@ if input.IsRightThumbUp(gamepad) then
 		modules.arms.pitch_servo.rotate(-0.5)
 	else
 		modules.arms.pitch_servo.rotate(-1)
+	end
 end
 if input.IsRightThumbDown(gamepad) then
 	if is_slow_mode then
 		modules.arms.pitch_servo.rotate(0.5)
 	else
 		modules.arms.pitch_servo.rotate(1)
+	end
 end
 if input.IsRightThumbRight(gamepad) then
 	if is_slow_mode then
 		modules.arms.roll_servo.rotate(0.5)
 	else
 		modules.arms.roll_servo.rotate(1)
+	end
 end
 if input.IsRightThumbLeft(gamepad) then
 	if is_slow_mode then
 		modules.arms.roll_servo.rotate(-0.5)
 	else
 		modules.arms.roll_servo.rotate(-1)
+	end
 end
 if input.IsLeftThumbUp(gamepad) then
 	modules.arms.root_servo.rotate(1)
