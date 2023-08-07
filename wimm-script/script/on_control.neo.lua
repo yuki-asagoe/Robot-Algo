@@ -46,14 +46,20 @@ if input.IsLeftThumbLeft(gamepad) then
 	turn_left()
 end
 if input.IsButtonDown(gamepad,buttons.RightShoulder) then
-	modules.container.rotate_belt(1)
+	modules.container.rotate_belt(-1)
 end
 if gamepad.RightTrigger > 30 then
-	modules.container.rotate_belt(-1)
+	modules.container.rotate_belt(1)
 end
 if input.IsButtonDown(gamepad,buttons.LeftShoulder) then
 	modules.container.lift_updown(1)
 end
 if gamepad.LeftTrigger > 30 then
 	modules.container.lift_updown(-1)
+end
+if input.IsButtonDown(gamepad,buttons.Y) then
+	modules.container.move_container(-1)
+end
+if input.IsButtonDown(gamepad,buttons.X) then
+	modules.container.move_container(1)
 end
