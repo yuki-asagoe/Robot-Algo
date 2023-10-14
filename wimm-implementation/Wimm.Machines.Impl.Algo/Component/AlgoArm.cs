@@ -7,6 +7,7 @@ using System.Collections.Immutable;
 using Wimm.Machines.Component;
 using Wimm.Machines.Impl.Algo.Component.RokkoOroshiMotorBoard;
 using static Wimm.Machines.Impl.Algo.Algo;
+using Wimm.Common;
 
 namespace Wimm.Machines.Impl.Algo.Component
 {

@@ -3,11 +3,10 @@ using Wimm.Machines.Tpip3;
 using Wimm.Machines.Video;
 using Wimm.Machines.Impl.Algo.Component;
 using System.Collections.Immutable;
-using Wimm.Machines.Component;
-using System.Security.Cryptography.Xml;
 using Wimm.Machines.Extension;
 using Wimm.Machines.Tpip3.Import;
 using System.Runtime.InteropServices;
+using Wimm.Common;
 
 namespace Wimm.Machines.Impl.Algo
 {
@@ -101,29 +100,12 @@ namespace Wimm.Machines.Impl.Algo
                 motors
             );
         }
-        public Algo():base()
-        {
-            Camera = new Tpip3Camera(
-                "フロント", "アーム", "バック", "トップ"
-            );
-            Wheels = CreateWheels(this);
-            Arm = CreateArm(this);
-            StructuredModules
-                = new ModuleGroup(
-                    "modules",
-                    ImmutableArray.Create(Wheels, Arm),
-                    ImmutableArray.Create<Module>(
-                        new AlgoInnerContainer("container",this),
-                        new OtherFeatureModule("others", "その他機能を提供するモジュール", this)
-                    )
-                );
-        }
-        public Algo(MachineConstructorArgs args) : base(args)
+        public Algo(MachineConstructorArgs? args) : base(args)
         {
             Camera = new Tpip3Camera(
                 "フロント", "バック", "アーム","トップ"
             );
-            if(Camera is Tpip3Camera camera)
+            if(args is not null && Camera is Tpip3Camera camera)
             {
                 Hwnd?.AddHook(camera.WndProc);
             }
