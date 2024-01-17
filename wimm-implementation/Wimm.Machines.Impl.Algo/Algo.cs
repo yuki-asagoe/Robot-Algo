@@ -11,25 +11,13 @@ using Wimm.Common;
 namespace Wimm.Machines.Impl.Algo
 {
     [LoadTarget]
-    public sealed class Algo : Tpip3Machine, IPowerVoltageProvidable
+    public sealed class Algo : Tpip3Machine
     {
-        public double MaxVoltage => 30;
-        public double MinVoltage => 0;
-        public double Voltage
-        {
-            get
-            {
-                var data = new TPJT3.INP_DT_STR[1];
-                TPJT3.NativeMethods.get_sens(data,Marshal.SizeOf<TPJT3.INP_DT_STR>());
-                return data[0].batt/300.0;
-            }
-        }
 
         public ModuleGroup Wheels { get; }
         public ModuleGroup Arm { get; }
         public override string Name => "アルゴ";
 
-        public override Camera Camera { get; }
         public AlgoControlProcess? ControlProcess{ get; set; }
 
         internal event Action<ArmControlCanData>? SetArmDefault;
