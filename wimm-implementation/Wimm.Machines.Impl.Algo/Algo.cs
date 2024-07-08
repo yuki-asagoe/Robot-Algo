@@ -53,7 +53,7 @@ namespace Wimm.Machines.Impl.Algo
                 );
             return new ModuleGroup(
                 "wheels",
-                ImmutableArray<ModuleGroup>.Empty,
+                [],
                 wheels
             );
         }
@@ -84,7 +84,7 @@ namespace Wimm.Machines.Impl.Algo
                 );
             return new ModuleGroup(
                 "arms",
-                ImmutableArray<ModuleGroup>.Empty,
+                [],
                 motors
             );
         }
